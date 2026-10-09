@@ -214,6 +214,9 @@ function drawBall(ctx: Ctx, state: S): void {
 function drawScores(ctx: Ctx, state: S): void {
   text(ctx, String(state.score.p1), FIELD_CX - 110, 70, 72, PALETTE.left);
   text(ctx, String(state.score.p2), FIELD_CX + 110, 70, 72, PALETTE.right);
+  // The label sits over the net, so it takes a patch of field behind it.
+  ctx.fillStyle = PALETTE.field;
+  ctx.fillRect(FIELD_CX - 170, FIELD_H - 40, 340, 30);
   text(ctx, MODE_LABELS[state.mode], FIELD_CX, FIELD_H - 26, 16, PALETTE.dim);
 }
 
